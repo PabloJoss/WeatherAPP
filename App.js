@@ -7,20 +7,19 @@ export default App = () => {
   const [error, setError] = useState(null);
   const API_KEY = '845e816e9e9241a79c9231936241902';
 
-  const getWeather = async () => {
+   const getWeather = async () => { // async function funciona en torno a una accion
     try {
-      const res = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=5&aqi=yes&alerts=no`);
+      const res = await fetch(`http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}&days=1&aqi=yes&alerts=no`);
       const data = await res.json();
-      if (res.status === 200) {
-        setWeatherData(data);
-        setError(null);
-      } else {
-        setError(`Error finding weather data!`);
-      }
+        if (data.error) {
+            setError(data.error.message);
+        } else {
+            setWeatherData(data);
+        }   
     } catch (err) {
-      setError(`Error finding weather data!`);
+        setError('Error finding weather data');
     }
-  };
+    };
 
   useEffect(() => {
     city ? getWeather() : setWeatherData(null);
