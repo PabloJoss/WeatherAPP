@@ -27,12 +27,12 @@ export default App = () => {
   }, [city]);
 
   const renderBackgroundImage = () => {
-    if (!weatherData) return require('./assets/img/default-background.jpg'); // Imagen de fondo predeterminada cuando no hay datos
+    if (!weatherData) return require('./assets/img/default-background.jpg'); 
     const condition = weatherData.current.condition.text.toLowerCase();
     if (condition.includes('sunny')) return require('./assets/img/sunny-background.jpg');
     if (condition.includes('rain')) return require('./assets/img/rainy-background.jpg');
     if (condition.includes('cloudy')) return require('./assets/img/cloudy-background.jpg');
-    return require('./assets/img/default-background.jpg'); // Imagen de fondo predeterminada para cualquier otra condición
+    return require('./assets/img/default-background.jpg'); 
   };
 
   return (
