@@ -47,12 +47,11 @@ export default App = () => {
         <TouchableOpacity style={styles.button} onPress={getWeather}>
           <Text style={styles.buttonText}>Get Weather</Text>
         </TouchableOpacity>
-        {error && <Text>{error}</Text>}
+        {error && <Text style={styles.errorText}>{error}</Text>}
         {weatherData && (
           <View style={styles.dataContainer}>
             <Text style={styles.dataText}>City: {weatherData.location.name}</Text>
-            <Text style={styles.dataText}>Country: {weatherData.location.country}</Text>
-            <Text style={styles.dataText}>Temperature: {weatherData.current.temp_c}</Text>
+            <Text style={styles.dataText}>Temperature: {weatherData.current.temp_c}°C</Text>
             <Text style={styles.dataText}>Condition: {weatherData.current.condition.text}</Text>
           </View>
         )}
@@ -71,6 +70,8 @@ const styles = StyleSheet.create({
     fontSize: 30,
     marginBottom: 20,
     fontWeight: 'bold',
+    textAlign: 'center',
+    color: 'white',
   },
   textInput: {
     borderWidth: 1,
@@ -105,5 +106,12 @@ const styles = StyleSheet.create({
   dataText: {
     fontSize: 20,
     color: 'white',
+    textAlign: 'center',
+  },
+  errorText: {
+    fontSize: 16,
+    color: 'red',
+    textAlign: 'center',
+    marginTop: 10,
   },
 });
