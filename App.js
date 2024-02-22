@@ -51,7 +51,7 @@ export default App = () => {
         {weatherData && (
           <View style={styles.dataContainer}>
             <Text style={styles.dataText}>City: {weatherData.location.name}</Text>
-            <Text style={styles.dataText}>Temperature: {weatherData.current.temp_c}°C</Text>
+            <Text style={styles.dataText}>Temperature: {weatherData.current.temp_c}</Text>
             <Text style={styles.dataText}>Condition: {weatherData.current.condition.text}</Text>
           </View>
         )}
